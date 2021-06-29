@@ -1,0 +1,234 @@
+{
+  "intents": [
+    {
+      "intent": "اللغة",
+      "examples": [
+        {
+          "text": "dfghjk"
+        },
+        {
+          "text": "dfghjkl"
+        },
+        {
+          "text": "fghjk"
+        },
+        {
+          "text": "ghjg"
+        },
+        {
+          "text": "rtyu"
+        },
+        {
+          "text": "sdfghjy"
+        },
+        {
+          "text": "tyuio"
+        },
+        {
+          "text": "xcvbnm"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "المده",
+      "examples": [
+        {
+          "text": "عدد ساعات التدريب"
+        },
+        {
+          "text": "ما المدة"
+        },
+        {
+          "text": "ماالمده"
+        },
+        {
+          "text": "ماهي مدة التدريب"
+        },
+        {
+          "text": "هل التدريب حضوري ام عن بعد"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "المشاريع",
+      "examples": [
+        {
+          "text": "عدد المشاريع التي سنعملها"
+        },
+        {
+          "text": "ماهي المشاريع التي سنعمل عليها"
+        },
+        {
+          "text": "ماهي مشاريعكم"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "ترحيب",
+      "examples": [
+        {
+          "text": "السلام عليكم"
+        },
+        {
+          "text": "اهلا"
+        },
+        {
+          "text": "مرحبا"
+        },
+        {
+          "text": "هلا"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "عننا",
+      "examples": [
+        {
+          "text": "التدريب عبارة عن ايش"
+        },
+        {
+          "text": "عندكم تدريب صيفي"
+        },
+        {
+          "text": "هل يوجد لديكم تدريب"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "ترحيب ",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "اهلا وعليكم السلام اتفضل "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#ترحيب",
+      "dialog_node": "node_2_1624986686636",
+      "previous_sibling": "node_4_1624989215423"
+    },
+    {
+      "type": "standard",
+      "title": "عننا",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "نعم يوجد لدينا تدريب صيفي يخدم جميع من يرغب في التدريب من جميع الفئات "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#عننا",
+      "dialog_node": "node_4_1624989215423",
+      "previous_sibling": "node_6_1624989596287"
+    },
+    {
+      "type": "standard",
+      "title": "المدة",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "يوحد لدينا تدريب حضوري وعن بعد على مدار شهرين بمعدل 320 ساعة وبمعدل8 ساعات يوميا من الاحد الى الخميس "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "conditions": "#المده",
+      "dialog_node": "node_6_1624989596287",
+      "previous_sibling": "node_6_1624991165953"
+    },
+    {
+      "type": "standard",
+      "title": "المشاريع ",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "سنعمل على عدة مشاريع منها اساسية ومنها فرعية "
+              },
+              {
+                "text": "روبوت خدمة العملاء"
+              },
+              {
+                "text": "روبوت تقديم القهوة"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "conditions": "#المشاريع",
+      "dialog_node": "node_6_1624991165953",
+      "previous_sibling": "node_7_1624991672762"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "لا افهم الا اللغة العربية "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#اللغة",
+      "dialog_node": "node_7_1624991672762"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "disambiguation": {
+      "prompt": ":هل قصدت",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "كل ما سبق خطأ"
+    },
+    "human_agent_assist": {
+      "prompt": ":هل قصدت"
+    }
+  },
+  "learning_opt_out": false,
+  "name": "تحدث",
+  "language": "ar",
+  "description": ""
+}
